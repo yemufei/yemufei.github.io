@@ -276,7 +276,7 @@
         <section class="flex items-center gap-3 text-sm">
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
-            <time>2024-09-09</time>
+            <time>2024-09-16</time>
           </span>
           <span class="text-gray-400">·</span>
           <span class="flex items-center gap-1">
@@ -289,6 +289,12 @@
             <span>3.4k words</span>
           </span>
           
+            <span class="text-gray-400">·</span>
+            <span class="flex items-center gap-1">
+              <iconify-icon width="16" icon="icon-park-outline:box" class="mr-2"></iconify-icon>
+              <a class="article-category-link" href="/categories/%E4%BA%92%E8%81%94%E7%BD%91%E5%B7%A5%E5%85%B7/">互联网工具</a>
+            </span>
+          
         </section>
       </div>
     </div>
@@ -296,12 +302,12 @@
   <!-- content -->
   <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
     <h2 id="Git-笔记"><a href="#Git-笔记" class="headerlink" title="Git 笔记"></a>Git 笔记</h2><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><ul>
-<li><a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">起步 - 关于版本控制</a> </li>
-<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰 git 教程</a> </li>
-<li><a href="https://git-scm.com/doc">Documentation</a>                     </li>
-<li><a href="https://git-scm.com/">git-scm git官网</a>                      </li>
-<li><a href="https://gitee.com/liaoxuefeng/learn-java/raw/master/teach/git-cheatsheet.pdf">git cheat sheet</a> </li>
-<li><a href="https://www.bilibili.com/video/BV1xb411A7ac">【中文字幕】Linus 在 2007 年 Google Talk 上介绍 Git</a> </li>
+<li><a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">起步 - 关于版本控制</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰 git 教程</a></li>
+<li><a href="https://git-scm.com/doc">Documentation</a></li>
+<li><a href="https://git-scm.com/">git-scm git官网</a></li>
+<li><a href="https://gitee.com/liaoxuefeng/learn-java/raw/master/teach/git-cheatsheet.pdf">git cheat sheet</a></li>
+<li><a href="https://www.bilibili.com/video/BV1xb411A7ac">【中文字幕】Linus 在 2007 年 Google Talk 上介绍 Git</a></li>
 <li><a href="https://www.jianshu.com/p/7d57ce4147d3">解决git@github.com: Permission denied (publickey)</a></li>
 <li><a href="https://blog.csdn.net/hudashi/article/details/7664631">git rebase简介(基本篇)</a></li>
 </ul>
@@ -517,28 +523,25 @@
 <li>工作区的修改会由命令 git add 提交至暂存区。</li>
 </ul>
 <h2 id="本地Git仓库和GitHub仓库之间的传输"><a href="#本地Git仓库和GitHub仓库之间的传输" class="headerlink" title="本地Git仓库和GitHub仓库之间的传输"></a>本地Git仓库和GitHub仓库之间的传输</h2><ol>
-<li>创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash）。</li>
+<li>创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有 <code>id_rsa</code>和 <code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash）。</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br><span class="line"><span class="comment">#如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。</span></span><br></pre></td></tr></table></figure>
 
 <ol>
-<li>登陆GitHub，打开“Account settings”，然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容。为什么GitHub需要SSH Key呢？因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</li>
+<li>登陆GitHub，打开“Account settings”，然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴 <code>id_rsa.pub</code>文件的内容。为什么GitHub需要SSH Key呢？因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</li>
 </ol>
 <h2 id="场景应用"><a href="#场景应用" class="headerlink" title="场景应用"></a>场景应用</h2><h3 id="本地文件夹关联远程仓库并推送"><a href="#本地文件夹关联远程仓库并推送" class="headerlink" title="本地文件夹关联远程仓库并推送"></a>本地文件夹关联远程仓库并推送</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git init <span class="comment">#初始化文件夹</span></span><br><span class="line">git remote add origin git@gitee.com:zhangsan/springbootdemo.git <span class="comment">#关联</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;default&quot;</span></span><br><span class="line">git push --set-upstream origin master </span><br><span class="line"><span class="comment"># git push -u origin master</span></span><br><span class="line"><span class="comment">#可能遇到ssh公钥的一些问题，</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
-<li><p><strong>如何回滚到上一个版本和指定版本？</strong></p>
-</li>
-<li><p><strong>如何放弃暂存区的修改？</strong></p>
-</li>
-<li><p><strong>如何查看当前工作的修改文件数量和名称？</strong></p>
-</li>
-<li><p><strong>.gitignore 不生效？</strong> .gitignore 只能忽略那些没有被追踪(track)的文件，因为 git 存在本地缓存，如果文件已经纳入了版本管理，那么修改 .gitignore 是不能失效的。那么解决方案就是要将 git 的本地缓存删除，然后重新提交。</p>
-</li>
+<li><strong>如何回滚到上一个版本和指定版本？</strong></li>
+<li><strong>如何放弃暂存区的修改？</strong></li>
+<li><strong>如何查看当前工作的修改文件数量和名称？</strong></li>
+<li><strong>.gitignore 不生效？</strong> .gitignore 只能忽略那些没有被追踪(track)的文件，因为 git 存在本地缓存，如果文件已经纳入了版本管理，那么修改 .gitignore 是不能失效的。那么解决方案就是要将 git 的本地缓存删除，然后重新提交。</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#删除缓存后，源码显示都是没有被添加的文件。</span></span><br><span class="line">git <span class="built_in">rm</span> -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;update .gitignore&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
 <h2 id="统计代码行"><a href="#统计代码行" class="headerlink" title="统计代码行"></a>统计代码行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --format=<span class="string">&#x27;%aN&#x27;</span> | <span class="built_in">sort</span> -u | <span class="keyword">while</span> <span class="built_in">read</span> name; <span class="keyword">do</span> <span class="built_in">echo</span> -en <span class="string">&quot;<span class="variable">$name</span>\t&quot;</span>; git <span class="built_in">log</span> --since=<span class="string">&quot;23 weeks ago&quot;</span> --author=<span class="string">&quot;<span class="variable">$name</span>&quot;</span> --pretty=tformat: --numstat | awk <span class="string">&#x27;&#123; add += $1; subs += $2; loc += $1 - $2; all+= $1 + $2 &#125; END &#123; printf &quot;added lines: %s, removed lines: %s, total lines: %s, all change lines: %s \n&quot;, add, subs, loc, all &#125;&#x27;</span> -; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
   </article>
   <!-- tag -->
   <div class="mt-12 pt-6 border-t border-gray-200">
